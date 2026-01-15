@@ -2,51 +2,37 @@
 title: Using LLMs.txt or LLMs-full.txt
 description: Uniswap docs are LLM-ready and help developers build on Uniswap v4 faster and more efficiently.
 ---
-
 ## Understanding Context Windows
-
-AI models have a context window, which is the amount of text they can process at once. This is typically the number of tokens that can be processed in a single request (more like it's memory capacity).
+AI models have a context window, which is the amount of text they can process at once. This is typically measured in tokens that can be processed in a single request (essentially the model's memory capacity).
 Once the context window fills up, parts of your conversational history may be lost.
-
-It is exactly for this reason, providing relevant context upfront is critical.
-
+It is exactly for this reason that providing relevant context upfront is critical.
 ## llms.txt and llms-full.txt
-
-Depending on the model's context window, you can either use llms.txt or llms-full.txt. Most of the modern models have a [context window of about 100k tokens](https://codingscape.com/blog/llms-with-largest-context-windows).
-
-For most cases we are good to go with llms.txt as it is more compact and provides the LLM with necessary information about links from the documentation and what it does.
-
-If you are using a model with a larger context window, you can use llms-full.txt. It is a more verbose version of llms.txt and provides the LLM with more information about the documentation.
-
+Depending on the model's context window, you can either use llms.txt or llms-full.txt. Modern LLMs in 2025-2026 have dramatically expanded context windows, with most frontier models now supporting 200K to 1 million tokens, and some models like Llama 4 reaching 10 million tokens.
+For most cases, llms.txt is recommended as it is more compact and provides the LLM with necessary information about documentation links and their purpose.
+If you are using a model with a larger context window (1M+ tokens), you can use llms-full.txt. It is a more verbose version of llms.txt and provides the LLM with more comprehensive information about the documentation.
 ## Using llms.txt or llms-full.txt file
-
-You can provide your code editor with a llms.txt or llms-full.txt file to use Unichain docs as a context for your code.
-
+You can provide your code editor with a llms.txt or llms-full.txt file to use Unichain docs as context for your code.
 Here's how to do it for some common code editors:
-
 #### Cursor
 1. Navigate to Cursor Settings > Features > Docs
-2. Select “Add new doc” and paste the following URL:
+2. Select "Add new doc" and paste the following URL:
 ```
 https://docs.uniswap.org/v4-llms.txt
 ```
 or
-
 ```
 https://docs.uniswap.org/v4-llms-full.txt
 ```
-3. Use @docs -> Uniswap to reference Uniswap docs in your chat.
-
+3. In your chat, use `@docs -> Uniswap` (or the doc name you chose when adding it) to reference the Uniswap documentation.
 #### Windsurf
-
-Windsurf doesn't have a permanent settings menu for adding documentation context, so you need to reference it in each conversation where you want to use it.
-1. You can directly add it to the Cascade window (CMD+L) using:
+In Windsurf's Cascade AI agent, you can reference documentation directly in your conversation.
+1. Open Cascade (the AI panel on the right side)
+2. In your prompt, reference the documentation using:
 ```
-@docs:https://docs.uniswap.org/v4-llms.txt
+@https://docs.uniswap.org/v4-llms.txt
 ```
 or
-
 ```
-@docs:https://docs.uniswap.org/v4-llms-full.txt
+@https://docs.uniswap.org/v4-llms-full.txt
 ```
-
+3. Cascade will automatically fetch and use the documentation as context for your request.
